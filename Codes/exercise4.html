@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Drawing a spaceship</title>
+<link rel="stylesheet" href = "style.css">
+<script src="drawing.js"></script>
+</head>
+<body>
+  <h1>Drawing a  spaceship </h1>
+  <canvas id = "asteroids" width="700" height="700"></canvas>
+  <script>
+    var context = document.getElementById("asteroids").getContext("2d");
+    context.lineWidth = 1;
+    context.strokeStyle = "white";
+    draw_grid(context);
+    draw_ship(context, 150, {guide : true});
+  </script>
+</body>
+</html>

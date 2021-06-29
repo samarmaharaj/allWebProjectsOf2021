@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>game</title>
+<style>
+canvas
+{
+  background-color : #000000;
+  border : 1px solid yellow;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var redGamePiece;
+var yellowGamePiece;
+var whiteGamePiece;
+
+
+function startGame() {
+  myGameArea.start();
+  redGamePiece = new component(50, 20, "red", 100, 200);
+  yellowGamePiece = new component(50, 20, "yellow", 100, 280);
+  whiteGamePiece = new component(50, 20, "white", 100, 240);
+}
+
+var myGameArea = {
+  canvas : document.createElement("canvas"),
+  start : function() {
+    this.canvas.width = 750;
+    this.canvas.height = 500;
+    this.context = this.canvas.getContext("2d");
+    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    this.interval = setInterval(updateGameArea, 20);
+  },
+  clear : function() {
+  this.context.clearRect(0, 0, this.canvas.width,  this.canvas.height);
+  }
+}
+
+function component(width, height, color, x, y) {
+  this.width = width;
+  this.height = height;
+  this.x = x;
+  this.y = y;
+  this.update = function() {
+    ctx = myGameArea.context;
+    ctx.fillStyle = color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+}
+
+function updateGameArea() {
+  myGameArea.clear();
+  redGamePiece.x += 1;
+  yellowGamePiece.x += 1;
+  yellowGamePiece.y += 1;
+  whiteGamePiece.x += 1;
+  whiteGamePiece.y -= 1;
+  redGamePiece.update();
+  yellowGamePiece.update();
+  whiteGamePiece.update();
+}
+</script>
+</body>
+</html>

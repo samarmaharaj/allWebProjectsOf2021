@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>chapter 3</title>
+<link rel="stylesheet" href="style.css">
+<script src="drawing2.js"></script>
+</head>
+<body>
+  <h1>Pac man</h1>
+  <canvas id="asteroids" width="700" height="700"></canvas>
+  <script>
+  var canvas = document.getElementById("asteroids");
+  var context = canvas.getContext("2d");
+  draw_grid(context, 10, 50);
+  draw_ship(context, 350, 350, 300, {stroke : 'gold', lineWidth : 10, fill : 'red'});
+  </script>
+</body>
+</html>
