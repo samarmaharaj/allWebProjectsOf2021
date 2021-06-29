@@ -1,0 +1,48 @@
+body, html
+{
+  margin: 0;
+  padding:10px;
+}
+
+div
+{
+  display: block;
+  color: white;
+  font-size: 30px;
+}
+
+#header, #footer
+{
+  background: red;
+  height: 30px;
+  width: 100%;
+}
+
+#container
+{
+  width:100%;
+  height: 1000px;
+  background: cyan;
+}
+
+#aside
+{
+  width: 100%;
+  height: 100px;
+  background: yellow;
+}
+
+#nav
+{
+  width:100%;
+  height: 450px;
+  background: dodgerBlue;
+  margin-bottom:50px;
+}
+
+#main
+{
+  width: 100%;
+  height: 450px;
+  background: navy;
+}

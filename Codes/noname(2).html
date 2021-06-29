@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<style type="text/css">
+input
+{
+padding : 10px;
+margin: 10px;
+}
+
+
+</style>
+<body>
+<h1>Form</h1>
+<form name="myForm" action="#" onsubmit="validateForm()">
+ <fieldset>
+  <b>First Name : </b><input type ="text" name ="uName" 
+                   placeholder="enter your first name..." required>
+  <b>Last Name : </b><input type="text" name="fName" placeholder="enter your last Name..." required><br>
+  <b>Phone Number : </b><input type="number" name="pNumber" placeholder="1234567890..." required><br>
+  <b>Email Address : </b><input type="email" name="email" placeholder="enter valid email address..." required><br>
+  <b>Password : </b><input type="password" name="pWord" placeholder="create password" required><br>  
+  <b>Gender : </b><input type="radio" value="male" name="gender">
+                  <input type="radio" value="female" name="gender">
+                  <input type="radio" value="Don't want to tell" name="gender"><br>
+  <input type="reset">
+  <input type="submit">
+ </fieldset>
+</form>
+<script type="text/javascript">
+function validateForm()  {
+  
+}
+
+</script>
+</body>
+</html>
