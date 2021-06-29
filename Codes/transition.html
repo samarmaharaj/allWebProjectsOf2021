@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2d transform</title>
+<style type="text/css">
+div
+{
+  background-color: yellow;
+  border: 1px solid red;
+  width: 300px;
+  height: 100px;
+  transform: rotate(0deg);
+}
+#translate
+{
+  transform:translate(350px, 200px);
+}
+#scale
+{
+  transform: scale(1.5, .5);
+}
+#rotate
+{
+  transform: rotateZ(50deg);
+  transform-origin:right;
+  transform-style:preserve-3d;
+}
+#skew
+{
+  transform: skew(20deg, 60deg);
+}
+#matrix
+{
+  transform: matrix(2, .3, 0, 1, 350, 50) ;
+}
+#width
+{
+  transition: transform 2s;
+  transform-origin:left;
+}
+#width:hover
+{
+  transform: scale(3, 2);
+  transform-origin:left;
+}
+</style>
+</head>
+<body>
+<div>
+function draw in my mind.1
+</div>
+<div id="scale" >
+function draw in my mind.2
+</div>
+<div id="translate" >
+function draw in my mind.3
+</div>
+<div id="rotate" > 
+function draw in my mind.4
+</div>
+<div id="skew" >
+function draw in my mind.5
+</div>
+<div id="matrix" >
+function draw in my mind.6
+</div>
+<div id="width" >
+<img src="photo/Albert.jpg" width="100%"  >
+</div>
+</body>
+</html>

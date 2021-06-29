@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>Flag</title>
+<style type="text/css">
+canvas
+{
+  background-color: yellow;
+}
+</style>
+<script type="text/javascript">
+var ctx;
+var factorvalue = 1;
+var fontFamily = "65px 'Gill Sans Ultra Bold', 'Times New Roman', sans-serif";
+
+function init() {
+  canvas = document.getElementById("myCanvas");
+  ctx = canvas.getContext("2d");
+  
+  ctx.font = fontFamily ;
+  ctx.save();
+  drawFlag();
+}
+
+function drawFlag() {
+  
+  ctx.restore();
+  ctx.save();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.scale(factorvalue, factorvalue);
+  
+  ctx.fillStyle = "orange";
+  ctx.beginPath();
+  ctx.rect(10, 10, 400, 100)
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.rect(10, 110, 400, 100)
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "green";
+  ctx.beginPath();
+  ctx.rect(10, 210, 400, 100)
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "#0000ff";
+  ctx.beginPath();
+  ctx.arc(210, 160, 50, 0, Math.PI*2)
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(210, 160, 45, 0, Math.PI*2)
+  ctx.closePath();
+  ctx.fill();
+  
+  for(i = 0; i < 360; i += 15) {
+    ctx.fillStyle = "#0000ff";
+    ctx.beginPath();
+    ctx.arc(210, 160, 45, (2 * i * Math.PI)/360, (2 * (i + 10) * Math.PI)/360);
+    ctx.lineTo(210, 160);
+    ctx.closePath();
+    ctx.fill();
+  }
+  
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.rect(10, 310, 10, 300);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "black";
+  ctx.beginPath();
+  ctx.moveTo(130, 400);
+  ctx.quadraticCurveTo(120, 600, 150, 400);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "black";
+  ctx.beginPath();
+  ctx.moveTo(290, 400);
+  ctx.quadraticCurveTo(300, 600, 270, 400);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = "red";
+  ctx.strokeStyle = "white";
+  ctx.beginPath();
+  ctx.moveTo(130, 400);
+  ctx.lineTo(290, 400);
+  ctx.lineTo(220, 500);
+  ctx.lineTo(200, 500);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  
+  ctx.fillStyle = "black";
+  ctx.strokeStyle = "white";
+  ctx.beginPath();
+  ctx.moveTo(200, 500);
+  ctx.lineTo(200, 600);
+  ctx.lineTo(210, 500);
+  ctx.lineTo(220, 600);
+  ctx.lineTo(220, 500);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  
+  ctx.fillStyle = "white";
+  ctx.strokeStyle = "black";
+  ctx.beginPath();
+  ctx.arc(210, 360, 50, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  
+  ctx.fillStyle = "black";
+  ctx.strokeStyle = "black";
+  ctx.beginPath();
+  ctx.arc(190, 350, 10, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  
+  ctx.fillStyle = "black";
+  ctx.strokeStyle = "black";
+  ctx.beginPath();
+  ctx.arc(230, 350, 10, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  
+  ctx.fillStyle = "black";
+  ctx.beginPath();
+  ctx.moveTo(200, 380);
+  ctx.quadraticCurveTo(220, 380, 200, 400);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.font = "24px sans-serif"
+  ctx.fillStyle = "red";
+  ctx.strokeStyle = "black";
+  ctx.fillText("Happy", 50, 370);
+  ctx.fillText("Republic", 50, 390);
+  ctx.fillText("Day!", 50, 410);
+  ctx.strokeText("JAI HIND!", 290, 370); 
+  ctx.stroke();
+}
+
+function changeValue(val) {
+  factorvalue = val/100;
+  drawFlag();
+}
+</script>
+</head>
+<body onload="init()">
+<canvas id="myCanvas" width="1000px" height="1050px" >
+<img src="photo/crop-briki.jpg" id="img1" ></canvas>
+<input id="slide" type="range" min="1" max="270" value="50" step="10" onchange="changeValue(this.value)" >
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>p</title>
+<style type="text/css">
+div
+{
+  width: 200px;
+  display: inline-block;
+  height: 200px;
+  margin: 0px;
+  font-size:20px;
+  text-align: center;
+  cursor:pointer;
+}
+.red
+{
+  background-color: red;
+  color: white;
+}
+.green
+{
+  background-color: green;
+  color: white;
+}
+.blue
+{
+  background-color: blue;
+  color: white;
+}
+.bg-red
+{
+  background-color: pink;
+  color: white;
+}
+.bg-green
+{
+  background-color: cyan;
+  color: white;
+}
+.bg-blue
+{
+  background-color: #00ccff;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h3 contenteditable="true" id="edit" >hello</h3>
+<hr>
+<p>Change Color</p>
+<div class="red" onclick="document.getElementById('edit').style.color = 'red'">
+ <p>Red</p>
+</div>
+<div class="green" onclick="document.getElementById('edit').style.color = 'green'">
+ <p>Green</p>
+</div>
+<div class="blue" onclick="document.getElementById('edit').style.color = 'blue'" >
+ <p>Blue</p>
+</div>
+<p>Change Background Color</p>
+<div class="bg-red" onclick="document.getElementById('edit').style.backgroundColor = 'pink'">
+ <p>Red</p>
+</div>
+<div class="bg-green" onclick="document.getElementById('edit').style.backgroundColor = 'cyan'">
+ <p>Green</p>
+</div>
+<div class="bg-blue" onclick="document.getElementById('edit').style.backgroundColor = '#00ccff'" >
+ <p>Blue</p>
+</div>
+<script type="text/javascript">
+function red() {
+  document.ge
+}
+</script>
+</body>
+</html>

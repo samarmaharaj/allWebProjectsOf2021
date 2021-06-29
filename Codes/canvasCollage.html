@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Collage with video</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"  />
+<style type="text/css">
+canvas
+{
+  position: absolute;
+  top: 80px;
+  background-color: red;
+  cursor:crosshair;
+}
+</style>
+
+<script type="text/javascript">
+var ctx;
+var canvas;
+var stuff = [];
+var thingInMotion;
+var offsetx;
+var offsety;
+var tid;
+var savedgco;
+var image = [];
+var videotext1 = "<video id=\"XXXX\" preload=\"auto\" loop=\"loop\" muted> <source src='XXXX.webm' type = \'video/webm; codec = \"vp8, vorbis\" \'>";
+var videotext2 = "<source src=\"XXXX.mp4\" type=\'video/mp4; codec = \"theora, vorbis\"\'>";
+var videotext3 = "sorry</video>";
+var videocount = 0;
+var okaytogo = false;
+
+function restart(ev) {
+  var v = ev.target;
+  v.currentTime = 0;
+  v.play();
+}
+
+function videoloaded(ev) {
+  ctx.fillText(ev.target.id + "loaded.", 400, 100 * videocount);
+  ev.target.play();
+  videocount--;
+  if (videocount == 0) {
+    okaytogo = true;
+  }
+}
+
+var mediainfo=
+[
+['heart', 300,40,100,30,'red'],
+['rect',620,400,100,150,"purple"],
+['oval',600,50,30,2,1,'green'],
+['oval',80, 500, 30, 2, 1, 'blue'],
+['video','video/Birthday',0,0,0,1000,800,896,1198,.25,1],
+['picture',5,150, 150, 200,'building.png'],
+['picture',500,150,280,210,'building.png']
+];
+
+var textmsg = "Loading videos";
+
+function init() {
+  canvas = document.getElementById("myCanvas");
+  canvas.onmousedown = function() {return false};
+  canvas.addEventListener("dbclick", makenewitem, false);
+  canvas.addEventListener("mousedown", startdragging, false);
+  ctx = canvas.getContext("2d");
+  savedgco = ctx.globalCompositeOperation;
+  createelements();
+  drawstuff();
+  ctx.fillText(texting, 100, 100);
+  loadid = setInterval(loading, 2000);
+}
+
+function loading() {
+  if(okaytogo) {
+    clearInterval(loadid);
+    tid = setInterval(drawstuff, 40);
+  } else {
+    textmsg += ".";
+    ctx.fillText(textmsg, 100, 100);
+  }
+}
+
+function drawStuff() {
+  ctx.clearRect(0, 0, 750, 600);
+  Ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(0, 0, 750, 600);
+  for (var i = 0; i < stuff.length; i++) {
+    stuff[i].draw();
+  }
+}
+
+function distsq(x1, y1, x2, y2) {
+  var xd = x1 - x2;
+  var yd = y1 - y2;
+  return ((xd * xd) + (yd * yd));
+}
+
+function rect(x, y, w, h, c) {
+  this.x = x;
+  this.y = y;
+  this.w = w;
+  this.h = h;
+  this.color = c;
+  this.draw = drawrect;
+  this.overcheck = overrect;
+}
+
+function oval(x, y, r, hor, ver, c) {
+  this.x = x;
+  this.y = y;
+  this.r = r;
+  this.radsq = r * r;
+  this.hor = hor;
+  this.ver = ver;
+  this.color = c;
+  this.draw = drawoval;
+  this.overcheck = overoval;
+}
+
+function videoblock(sx,sy,x,y,w,h,scale,videoel,volume,angle,alpha) {
+ this.sx = sx;
+ this.sy = sy;
+ this.x = x;
+ this.y = y;
+ this.w = w;
+ this.h = h;
+ this.videoelement = videoel;
+ this.volume = volume;
+ this.draw = drawvideo;
+ this.overcheck = overvideo; //need more complex checking because of angle and scale
+ this.angle = angle;
+ this.cosine = Math.cos(angle);
+ this.sine = Math.sin(angle);
+ this.scale = scale;
+ this.alpha = alpha;
+ videoel.volume = 0;
+}
+
+function overvideo(mx, my) {
+  //need to add code to check in rotation case and scaling
+  omx = mx;
+  omy = my;
+  if (this.angle!=0) {
+  omx = omx-this.x;
+  omy = omy - this.y;
+  mx = omx*this.cosine + omy*this.sine;
+  my = -omx*this.sine + omy*this.cosine;
+  mx = this.x +mx;
+  my = this.y + my;
+  }
+  if (this.scale!=1) {
+  //alert("prescaling mx is "+mx+" prescaling my is "+my);
+  mx = mx/this.scale;
+  my = my/this.scale;
+  //alert("post scaling mx is "+mx+" post scaling my is "+my);
+  }
+  return (
+  (mx>=this.x)&&(mx<=(this.x+this.w))&&(my>=this.y)&&(my<=(this.
+  y+this.h)));
+  }
+
+function makenewitem(ev) {
+ var mx;
+ var my;
+ if (ev.layerX || ev.layerX == 0) {
+ mx= ev.layerX;
+ my = ev.layerY;
+ } else if (ev.offsetX || ev.offsetX == 0) {
+ mx = ev.offsetX;
+ my = ev.offsetY;
+ }
+ var endpt = stuff.length-1;
+ var item;
+ for (var i=endpt;i>=0;i--) { //reverse order
+ if (stuff[i].overcheck(mx,my)) {
+ item = clone(stuff[i]);
+ item.x +=20;
+ item.y += 20;
+ stuff.push(item);
+ break;
+ }
+ }
+}
+
+function moveit(ev) {
+ var mx;
+ var my;
+ if ( ev.layerX || ev.layerX == 0) {
+ mx= ev.layerX;
+ my = ev.layerY;
+ } else if (ev.offsetX || ev.offsetX == 0) { //opera, ???
+ mx = ev.offsetX;
+ my = ev.offsetY;
+ }
+ stuff[thingInMotion].x = mx-offsetx; //adjust for flypaper dragging
+ stuff[thingInMotion].y = my-offsety;
+ }
+
+function dropit(ev) {
+ canvas1.removeEventListener('mousemove',moveit,false);
+ canvas1.removeEventListener('mouseup',dropit,false);
+ canvas1.style.cursor = "crosshair"; //change back to crosshair
+}
+
+function clone(obj) {
+  var item = new Object();
+  for (var info in obj) {
+    item[info] = obj[info];
+  }
+  return item;
+}
+
+  function startdragging(ev) {
+  var mx;
+  var my;
+  if (ev.layerX || ev.layerX == 0) {
+  mx= ev.layerX;
+  my = ev.layerY;
+  } else if (ev.offsetX || ev.offsetX == 0) {
+  mx = ev.offsetX;
+  my = ev.offsetY;
+  }
+  var endpt = stuff.length-1;
+  for (var i=endpt;i>=0;i--) { //reverse order
+  if (stuff[i].overcheck(mx,my)) {
+  offsetx = mx-stuff[i].x;
+  offsety = my-stuff[i].y;
+  var item = stuff[i];
+  thingInMotion = stuff.length-1;
+  stuff.splice(i,1);
+  stuff.push(item);
+  canvas1.style.cursor = "pointer"; // change to finger
+  canvas1.addEventListener('mousemove',moveit,false);
+  canvas1.addEventListener('mouseup',dropit,false);
+  break;
+  }
+  }
+  }
+  
+
+
+function heart(x,y,h,drx,color) {
+ this.x = x;
+ this.y = y;
+ this.h = h;
+ this.drx = drx;
+ this.radsq = drx*drx;
+ this.color = color;
+ this.draw = drawheart;
+ this.overcheck = overheart;
+ this.ang = .25*Math.PI;
+}
+
+function createelement() {
+  var name;
+  var i;
+  var type;
+  var divelement;
+  var videomarkup;
+  var velref;
+  var vb;
+  var imgdummy;
+  
+  for(i = 0; i < mediainfo.length; i++) {
+    type =  mediainfo[i].shift();
+    info = mediainfo[i];
+    
+    switch(type) {
+      case 'video' :
+        videocount++;
+        name = info[0];
+        divelement = document.createElement("div");
+        videomarkup = videotext1 + videotext2 + videotext3;
+        videomarkup = videomarkup.replace(/XXXX/g, name);
+        divelement.innerHTML = videomarkup;
+        document.body.appendChild(divelement);
+        velref = document.getElementById(name);
+        velref.addEventListener("ended", restart, false);
+        velref.addEventListener("loadeddata", videoloaded, false);
+        vb = new videoblock(info[2], info[3], info[4], info[5], info[6], info[7], info[8], velref, info[9], info[1], info[10]);
+        stuff.push(vb);
+        break;
+        
+      case 'picture' :
+        imgdummy = new Image();
+        imgdummy.src = info[4];
+        images.push(imgdummy);
+        stuff.push( new picture(info[0], info[1], info[2], info[3], image[image.length-1]));
+        break;
+        
+      case 'heart' :
+        stuff.push(new heart(info[0], info[1], info[2], info[3], info[4]));
+        break;
+        
+      case 'oval' :
+        stuff.push( new oval(info[0], info[1], info[2], info[3], info[4], info[5]));
+        break;
+        
+      case 'rect' :
+        stuff.push( new rect(info[0], info[1], info[2], info[3], info[4]));
+        break;
+    }
+  }
+}
+
+function drawrect() {
+  ctx.fillStyle = this.color;
+  ctx.fillRect(this.x, this.y, this.w, this.h);
+}
+
+function drawoval() {
+  ctx.save();
+  ctx.translate(this.x, this.y);
+  ctx.scale(this.hor, this.ver);
+  ctx.fillStyle = this.color;
+  ctx.beginPath();
+  ctx.arc(0, 0, this.r, 0, 2 * Math.PI);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawheart() {
+  var leftctrx = this.x - this.drx;
+  var rightctrx = this.x + this.drx;
+  var cx = rightctrx + this.drx * Math.cos(this.ang);
+  var cy = this.y + this.drx * Math.sin(this.ang);
+  ctx.fillStyle = this.color;
+  ctx.beginPath();
+  ctx.moveTo(this.x,this.y);
+  ctx.arc(leftctrx,this.y,this.drx,0,Math.PI-this.ang,true);
+  ctx.lineTo(this.x,this.y+this.h);
+  ctx.lineTo(cx,cy);
+  ctx.arc(rightctrx,this.y,this.drx,this.ang,Math.PI,true);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawpic() {
+ ctx.globalAlpha = 1.0;
+ ctx.drawImage(this.imagename,this.x,this.y,this.w,this.h);
+}
+
+function drawvideo() {
+ var savedalpha = ctx.globalAlpha;
+ ctx.globalCompositeOperation = "lighter";
+ ctx.globalAlpha = this.alpha;
+ if (this.angle!=0) {
+ ctx.save();
+ ctx.translate(this.x,this.y);
+ ctx.rotate(this.angle);
+ ctx.translate(-this.x,-this.y)
+ if (this.scale!=1) {
+ ctx.scale(this.scale,this.scale); }
+ ctx.drawImage(this.videoelement,this.sx,this.sy, 
+ this.w,this.h,this.x,this.y, this.w, this.h);
+ ctx.restore();
+ }
+ else {
+ if (this.scale!=1) {
+ ctx.save();
+ ctx.scale(this.scale,this.scale);
+ ctx.drawImage(this.videoelement,this.sx,this.sy, 
+ this.w,this.h,this.x,this.y, this.w, this.h);
+ ctx.restore();
+ }
+ else {
+ ctx.drawImage(this.videoelement,this.sx,this.sy, 
+ this.w,this.h,this.x,this.y, this.w, this.h);
+ }
+ }
+ ctx.globalAlpha = savedalpha;
+ ctx.globalCompositeOperation = savedgco;
+ }
+ 
+ function overrect (mx,my) {
+ return (
+ (mx>=this.x)&&(mx<=(this.x+this.w))&&(my>=this.y)&&(my<=(this.
+ y+this.h)));
+ }
+ 
+ function overoval(mx,my) {
+ var x1 = 0;
+ var y1 = 0;
+ var x2 = (mx-this.x)/this.hor;
+ var y2 = (my-this.y)/this.ver;
+ if (distsq(x1,y1,x2,y2)<=(this.radsq) ){
+ return true
+ }
+ else {return false}
+ }
+ 
+ 
+ function removeobj() {
+   stufg.pop();
+   drawstuff();
+ }
+ 
+ 
+ function saveasimage() {
+ try {
+ window.open(canvas1.toDataURL("image/png"));}
+ catch(err) {
+ alert("You need to change browsers AND/OR upload the file to a server.");
+ }
+ }
+</script>
+
+</head>
+<body onload="init()">
+<canvas id="myCanvas" width="750px" height="600px"  ></canvas>
+<button onclick="saveasimage()">Save Image</button><br>
+<button onclick="removeobj()">Remove last moved object</button>
+</body>
+</html>

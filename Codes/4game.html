@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Snake Game using HTML and Javascript - Studytonight</title>
+    <style>
+        .game-box {
+            text-align:center;   
+        }
+        .game-info, h2 {
+            text-align:center; 
+            font-family:arial;
+            line-height:24px;
+        }
+        button
+        {
+          border: none;
+          outline: none;
+          width: 100px;
+          height: 100px;
+         }
+    </style>
+  </head>
+  <body>
+    <div id="game-box" ><canvas id="myCanvas" width="400px" height="400px" ></canvas>
+    </div>
+    <div id="game-info" >
+      <h2>Snake Game</h2>
+      <p id="game-status" ></p>
+      <p id="game-score" ></p>
+    </div>
+    
+    <script type="text/javascript">
+    var gridSize = (tileSize = 20); // 20 x 20 = 400
+    var nextX = (nextY = 0);
+    
+    // snake
+    var defaultTailSize = 3;
+    var tailSize = defaultTailSize;
+    var snakeTrail = [];
+    var snakeX = (snakeY = 10);
+    
+    // apple
+    var appleX = (appleY = 15);
+    
+    
+    function startGame(x) {
+      gameActive = true;
+      document.getElementById("game-status").innerHTML = "<small>Game Started</small>";
+      document.getElementById("game-score").innerHTML = "";
+      return setInterval(draw, 1000/x);
+    }
+    
+    function pauseGame() {
+      clearInterval(gameControl);
+      gameActive = false;
+      document.getElementById("game-status").innerHTML = "<small>Game Paused</small>"; 
+    }
+    
+    function endGame(x) {
+      clearInterval(gameControl);
+      document.getElementById("game-status").innerHTML = "<small>Game Over</small>";
+      document.getElementById("game-score").innerHTML = "<h1>Score : " + x +  "</h1>";
+    }
+    
+    function draw() {
+      snakeX += nextX;
+      snakeY += nextY;
+    }
+    </script>
+    
+    <button ontouchstart="move('Up')" ontouchend="moveStop()">up</button><br>
+    <button ontouchstart="move('Left')" ontouchend="moveStop()">left</button>
+    <button ontouchstart="move('Right')" ontouchend="moveStop()">right</button><br>
+    <button ontouchstart="move('Down')" ontouchend="moveStop()">down</button><br>
+  </body>
+</html>

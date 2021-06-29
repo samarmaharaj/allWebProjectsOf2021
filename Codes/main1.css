@@ -1,0 +1,15 @@
+.jumbotron
+{
+  height: 400px;
+  padding:0;
+  margin:0;
+  display:inline-block;
+}
+*
+{
+  box-sizing:border-box;
+}
+body
+{
+  background: #2eb872;
+}

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Website 6</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<style type="text/css">
+body
+{
+  font:400 15px Lato, sans-serif;
+  line-height: 1.8;
+  color:#818181;
+}
+h2
+{
+  font-size: 24px;
+  margin-bottom:30px;
+  color:#303030;
+  font-weight:600;
+  text-transform:uppercase;
+}
+h4
+{
+  font-size: 19px;
+  margin-bottom:30px;
+  
+  line-height: 1.375em;
+  font-weight:400;
+}
+.jumbotron 
+{
+  color:#fff;
+  background-color: #f1511e;
+  padding: 100px 25px;
+  font-family: Montserrat;
+}
+.bg-grey
+{
+  background-color: #f6f6f6;
+}
+.container-fluid 
+{
+  padding: 60px 50px; 
+}
+.logo
+{
+  font-size:200px;
+  color: #f1511e;
+}
+.logo-mini
+{
+  font-size: 50px;
+  color: #f1511e;
+}
+.thumbnail
+{
+  border: none;
+  border-radius: 0;
+  padding: 0 0 15px 0; 
+}
+.thumbnail img
+{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+@media screen and (max-width : 768)
+{
+  .col-sm-4
+  {
+    text-align: center;
+    margin: 15px 0;
+  }
+}
+.carousel-control.left, .carousel-control.right
+{
+  background-image: none;
+  color: #f1511e;
+}
+.carousel-indicators li
+{
+  border-color:#f1511e;
+}
+.carousel-indicators li.active
+{
+  background-color: #f1511e;
+}
+.item h4, .item p
+{
+  font-size: 19px;
+  line-height: 1.375em;
+  font-weight: 400;
+  margin: 50px 0;
+}
+.item h4
+{
+  font-style: italic;
+}
+.panel-footer 
+{
+  color: #f1511e;
+  background-color: #fff;
+  border-radius: 0;
+  border-top: 1px solid #f1511e;
+}
+.panel-footer button
+{
+  color: #fff;
+  background-color: #f1511e;
+  margin: 15px 0;
+}
+.panel-footer button:hover
+{
+  color: #f1511e;
+  background-color: #fff;
+  border: 1px solid #f1511e;
+}
+.panel
+{
+  border: 1px solid #f1511e;
+  border-radius:0;
+  transition: box-shadow 0.5s ease;
+}
+.panel .panel-heading 
+{
+  color: #fff;
+  background-color: #f1511e;
+  border-radius:0;
+  padding: 25px;
+  border-bottom: 1px solid transparent;
+}
+.panel:hover
+{
+  box-shadow:15px 0 40px rgba(0,0,0,0.2);
+}
+.navbar {
+  margin-bottom: 0;
+  background-color: #f4511e;
+  z-index: 9999;
+  border: 0;
+  font-size: 12px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  font-family:Montserrat;
+  border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+footer .glyphicon, footer h1 
+{
+  color: #fff;
+}
+footer
+{
+  background-color: #f1511e;
+  height: 200px;
+  padding:100px;
+}
+.slideanim
+{
+  visibility:hidden;
+}
+.slide
+{
+  animation-name: slide;
+  animation-duration: 1s;
+  visibility: visible;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-visibility: visible;
+}
+@keyframes slide
+{
+  0%
+  {
+    opacity:0;
+    transform: translateY(70%);
+  }
+  100%
+  {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slide
+{
+  0%
+  {
+    opacity:0;
+    transform: translateY(70%);
+  }
+  100%
+  {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+</style>
+
+</head>
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#home" class="navbar-brand">LOGO</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNav">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about" >ABOUT</a></li>
+        <li><a href="#services" >SERVICE</a></li>
+        <li><a href="#portfolio" >PORTFOLIO</a></li>
+        <li><a href="#pricing" >PRICING</a></li>
+        <li><a href="#contact" >CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron text-center" >
+  <h1>Future ABC</h1>
+  <p>We are building Future</p>
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="email address" required>
+      <div class="input-group-btn">
+        <button class="btn btn-danger">
+          subscribe
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Future ABC</h2>
+      <h4>We people are inventing Future!</h4><br>
+       <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+       <!--p>Of course, no human being is at any time without any action, because the whole human community is forced to perform actions by nature-born qualities.</p>
+       <p>The elevated man who behaves and the other men do the same thing.
+       What he gives evidence is according to what the whole human community is supposed to be in accordance with
+       (here is the singular in the verb, but the word ‘lok’ is the word ‘community’ and the word plural verb is written in the language.</p-->
+       <button class="btn btn-danger btn-lg slideanim"><span class="glyphicon glyphicon-heart slideanim"></span> Get In Touch</button>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-signal logo slideanim"></span>
+    </div>
+  </div>
+</div>
+<div id="value"  class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+    <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Our Value</h2><br>
+      <h4><strong>MISSION :</strong> A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</h4><br>
+      <p><strong>VALUE :</strong> A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+    </div>
+  </div>
+</div>
+<div id="services" class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4><br><br>
+  <div class="row">
+  <div class="col-sm-4">
+    <span class="glyphicon glyphicon-off logo-mini slideanim"></span>
+    <h4>Power</h4>
+    <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  <div class="col-sm-4">
+    <span class="glyphicon glyphicon-heart logo-mini slideanim"></span>
+    <h4>Love</h4>
+    <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  <div class="col-sm-4">
+    <span class="glyphicon glyphicon-lock logo-mini slideanim"></span>
+    <h4>Job Done</h4>
+    <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4">
+  <span class="glyphicon glyphicon-leaf logo-mini slideanim"></span>
+  <h4>Green</h4>
+  <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  <div class="col-sm-4">
+  <span class="glyphicon glyphicon-certificate logo-mini slideanim"></span>
+  <h4>Certification</h4>
+  <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  <div class="col-sm-4">
+  <span class="glyphicon glyphicon-wrench logo-mini slideanim"></span>
+  <h4>Hard Work</h4>
+  <p>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</p>
+  </div>
+  </div>
+</div>
+<div id="portfolio" class="container-fluid text-center bg-grey">
+<h2>PORTFOLIO</h2>
+<h4>What we built</h4><br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail slideanim">
+        <img src="photo/streetview.jpg" width="100%">
+        <p><strong>Future 50A Street</strong></p>
+        <p>we build Future 50 Ahead</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail slideanim">
+        <img src="photo/cityview.jpg" width="100%">
+        <p><strong>Future 50A City</strong></p>
+        <p>we build Future 50 Ahead</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail slideanim">
+        <img src="photo/glasstower.jpg" width="100%">
+        <p><strong>Future 50A Hotel</strong></p>
+        <p>we build Future 50 Ahead</p>
+      </div>
+    </div>
+  </div>
+<hr>
+  <h2>What Our Visitors Says</h2>
+  <div id="myCarousel" class="carousel slide text-center slideanim" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" ></li>
+      <li data-target="#myCarousel" data-slide-to="2" ></li>
+      <li data-target="#myCarousel" data-slide-to="3" ></li>
+    </ol>
+    
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</h4>
+        <p>- visitor No. 045779</p>
+      </div>
+      <div class="item">
+        <h4>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</h4>
+        <p>- visitor No. 045579</p>
+      </div>
+      <div class="item">
+      <h4>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</h4>
+      <p>- visitor No. 045779</p>
+      </div>
+      <div class="item">
+      <h4>A man who is neither happy nor hostile, grieves, desires, and who is a renunciation of good and unlucky all deeds – he loves me.</h4>
+      <p>- visitor No. 046900</p>
+      </div>
+    </div>
+    
+    <a href="#myCarousel" class="carousel-control left" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a href="#myCarousel" class="carousel-control right" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Pricing</h2>
+    <h4>Choose what site you</h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 text-center slideanim">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>BASIC</h4>
+        </div>
+        <div class="panel-body">
+          <p><strong>2</strong> wheeless Drive</p>
+          <p><strong>5</strong> Buy Anything Coupen</p>
+          <p><strong>10</strong> VR Gaming</p>
+          <p><strong>20</strong> Hours</p>
+        </div>
+        <div class="panel-footer">
+          <h3>₹ 24k</h3>
+          <button type="button" class="btn">Check Up</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center slideanim">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>INTERMEDIATE</h4>
+        </div>
+        <div class="panel-body">
+          <p><strong>4</strong> wheeless Drive</p>
+          <p><strong>10</strong> Buy Anything Coupen</p>
+          <p><strong>30</strong> VR Gaming</p>
+          <p><strong>48</strong> Hours</p>
+        </div>
+        <div class="panel-footer">
+          <h3>₹ 40k</h3>
+          <button type="button" class="btn">Check Up</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center slideanim">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>ADVANCED</h4>
+        </div>
+        <div class="panel-body">
+          <p><strong>7</strong> wheeless Drive</p>
+          <p><strong>20</strong> Buy Anything Coupen</p>
+          <p><strong>40</strong> VR Gaming</p>
+          <p><strong>72</strong> Hours</p>
+        </div>
+        <div class="panel-footer">
+          <h3>₹ 60k</h3>
+          <button type="button" class="btn">Check Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">Contact Us</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Contact Us. We will get to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Noida</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +120-9988776, +120-9988777</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> contact@futureabc.com</p>
+    </div>
+    <div class="col-sm-8">
+      <form class="form-group slideanim">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control slideanim" id="name" name="name" placeholder="Name" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="email" class="form-control slideanim" id="email" name="email" placeholder="Email" required>
+          </div>
+        </div>
+        <textarea class="form-control slideanim" placeholder="comments..." name="comments" id="comments" rows="5" ></textarea><br>
+        <div class="col-sm-12 form-group">
+          <button type="submit" class="btn btn-danger pull-right" id="submit" name="submit">send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<img src="photo/desert.jpg" alt="image" class="img-responsive" width="100%">
+<footer class="container-fluid text-center">
+  <a href="#home" title="to the top" ><span class="glyphicon glyphicon-chevron-up"></span></a>
+  <h1>Footer</h1>
+</footer>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".navbar a, footer a[href='#home']").on('click', function(event) {
+
+   // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 1900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+
+$(document).scroll(function() {
+  $(".slideanim").each(function() {
+    var pos = $(this).offset().top;
+    var Winton = $(window).scrollTop();
+    if(pos < Winton + 1000)  {
+      $(this).addClass("slide");
+    }
+  });
+});
+</script>
+</body>
+</html>

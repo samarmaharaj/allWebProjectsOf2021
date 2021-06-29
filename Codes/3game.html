@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>snake game</title>
+<style type="text/css">
+*
+{
+  margin:0;
+  padding: 0;
+  border: 2px solid black;
+}
+canvas
+{
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas" height="750px" width="750px"  >not supported </canvas>
+<script type="text/javascript">
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+let snake = [{x : 200, y : 200}, {x : 180, y : 200}];
+
+function drawSnakePart(snakePart) {
+  ctx.fillStyle = "red";
+  ctx.strokeStyle = "black";
+  ctx.fillRect(snake.x, snake.y, 10, 10);
+  ctx.strokeRect(snake.x, snake.y, 10, 10);
+}
+
+drawSnakePart()
+</script>
+</body>
+</html>
