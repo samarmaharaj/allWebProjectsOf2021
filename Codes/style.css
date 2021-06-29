@@ -1,0 +1,38 @@
+body
+{
+  background : #ffffff;
+  user-select: none;
+}
+
+#wrapper
+{
+  position : absolute;
+}
+
+#gamecontainer
+{
+  width: 770px;
+  height: 480px;
+  background : url("GameImage/angrybird.jpeg");
+}
+
+.gamelayer
+{
+  width: 100%;
+  height: 100%;
+  position :absolute;
+  display :none;
+}
+
+#gamestartscreen
+{
+  padding-top: 250px;
+  text-align: center;
+}
+
+#gamestartscreen img
+{
+  margin: 10px;
+  cursor: pointer;
+}
+

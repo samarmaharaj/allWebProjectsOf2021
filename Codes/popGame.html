@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scale=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <style type="text/css">
+    body
+    {
+      margin:0;
+      padding: 0;
+      background: #000;
+    }
+    
+    canvas
+    {
+      display: block;
+      margin: 0 auto;
+      background: #fff;      
+    }
+  </style>
+  <title></title>
+</head>
+<body>
+  <canvas></canvas>
+  <script type="text/javascript">
+  var POP = {
+    width: 320,
+    height: 480,
+    
+    RATIO: null,
+    currentWidth: null,
+    currentHeight: null,
+    canvas: null,
+    ctx: null,
+    
+    init: function() {
+      POP.RATIO = POP.width/POP.height;
+      
+      POP.currentWidth = POP.width;
+      POP.currentHeight = POP.height;
+      POP.canvas = document.getElementsByTagName('canvas')[0];
+      POP.canvas.width = POP.width;
+      POP.canvas.height = POP.height;
+      POP.cxt = POP.canvas.getContext('2d');
+      
+      POP.ua = navigator.userAgent.toLowerCase();
+      POP.android = POP.ua.indexOf("android") > -1 ? true : false;
+      POP.ios = ( POP.ua.indexOf("iphone") > -1 || POP.ua.indexOf("ipad") > -1 ) ? true : false;
+      
+      if(POP.android || POP.ios) {
+        document.body.style.height = (window.innerHeight + 50) + "px";
+      }
+      
+      //click
+      window.addEventListener("click", function(e) {
+        e.preventDefault();
+        POP.Input.set(e);
+      }, false);
+      
+      //touch
+      window.addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        POP.Input.set(e.touches[0]);
+      },, false);
+      
+      window.addEventListener("touchmove", function(e) {
+        e.preventDefault();
+      }, false);
+      
+      window.addEventListener("touchend", function(e) {
+        e.preventDefault();
+      }, false);
+      
+      POP.resize();
+    },
+    
+    resize: function() {
+      POP.currentHeight = window.innerHeight;
+      POP.currentWidth  = POP.currentHeight * POP.RATIO;
+      
+      if(POP.android || POP.ios) {
+        document.body.style.height = (window.innerheight + 50) + 'px';
+      }
+      POP.canvas.style.width = POP.currentWidth + 'px';
+      POP.canvas.style.height = POP.currentHeight + 'px';
+      
+      window.setTimeout(function() {
+        window.scrollTo(0,1);
+      }, 1);
+    }
+  };
+  
+  
+  POP.Draw = {
+    clear: function() {
+      POP.ctx.clearRect(0, 0, POP.width, POP.height);
+    },
+    
+    rect: function(x, y, h, col) {
+      POP.ctx.fillStyle = col;
+        POP.ctx.fillRect(x, y, w, h);      
+    },
+    
+    circle: function(x, y, r, col) {
+      POP.ctx.fillStyle = col;
+      POP.ctx.beginPath();
+      POP.ctx.arc(x + 5, y + 5, r, 0, Math.PI * 2, true);
+      POP.ctx.closePath();
+      POP.ctx.fill();
+    },
+    
+    text: function(string, x, y, size, col) {
+      POP.ctx.font = "bold" + size + "px Monospace";
+      POP.ctx.fillStyle = col;
+      POP.ctx.fillText(string, x, y);
+    }
+  };
+  POP.Input = {
+  
+  x: 0,
+  y: 0,
+  tapped :false,
+  
+  set: function(data) {
+  this.x = (data.pageX - POP.offset.left) / POP.scale;
+  this.y = (data.pageY - POP.offset.top) / POP.scale;
+  this.tapped = true;
+  
+  }
+  
+  };
+  
+  window.addEventListener('load', POP.init, false);
+  window.addEventListener('resize', POP.resize, false);
+  
+  
+  
+  
+  
+  
+  </script>
+</body>
+</html>

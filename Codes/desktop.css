@@ -1,0 +1,43 @@
+body, html
+{
+  margin: 0;
+  padding:10px;
+}
+
+div
+{
+  display: block;
+
+}
+
+#header, #footer
+{
+  background: red;
+  height: 50px;
+  width: 100%;
+}
+
+#aside
+{
+  width: 210px;
+  height: 1000px;
+  background: yellow;
+  float: right;
+}
+
+#nav
+{
+  width:210px;
+  height: 450px;
+  background: dodgerBlue;
+  margin-bottom:50px;
+  float: left;
+}
+
+#main
+{
+  width: 800px;
+  height: 1000px;
+  background: navy;
+  margin-left:210px;
+}

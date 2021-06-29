@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>sample html5 file</title>
+<script>
+  function pageLoaded() {
+    var canvas = document.getElementById("testcanvas");
+    var context = canvas.getContext("2d");
+    context.fillRect(500,50, 100, 100);
+    context.strokeRect(100, 250, 100, 100);
+    context.beginPath();
+    context.moveTo(10, 10);
+    context.lineTo(100, 10);
+    context.lineTo(100, 100);
+    context.lineTo(10, 10);
+    context.closePath();
+    context.fill();
+    context.font = "10pt Arial";
+    context.fillText("hello", 200, 50);
+    context.font = "16pt Arial";
+    context.strokeText("welcome", 400, 100);
+    context.fillStyle = "red";
+    context.fillRect(120, 160, 100, 50);
+    context.strokeStyle = "blue";
+    context.strokeRect(310, 240, 100, 50);
+    context.fillStyle = "rgba(0, 250, 0, 0.6)";
+    context.fillRect(10, 10, 700, 900);
+    var fireImage = document.getElementById("cool");
+    var pattern = context.createPattern(fireImage, "repeat");
+    context.fillStyle = pattern;
+    context.fillRect(0, 240, 700, 5);
+    
+    var image = document.getElementById("spaceship");
+    context.drawImage(image, 0, 0, 700, 200);
+    context.drawImage(image, 0, 0, 250, 200, 0, 250, 250, 200);
+    
+    context.translate(125, 300);
+    context.rotate(Math.PI/3);
+    context.drawImage(image, 0, 0, 250, 200, 125, 100, 250, 200);
+    
+    var sound = document.createElement("audio");
+    var oggSupport, mp3Support;
+    
+    if(audio.canPlayType) {
+      mp3Support = "" !== audio.canPlayType("audio/mpeg");
+      oggSopport = "" !== audio.canPlayType("audio/ogg");
+    } else {
+      Mp3Support = false;
+      oggSopport = false;
+    }
+    
+    var soundFileExtn = oggSupport ? ".ogg" : mp3Support ? ".mp3" : undefined ;
+    
+    if(soundFileExtn) {
+      var sound = new Audio();
+      sound.addEventListener("canPlayThrough", function() {
+        sound.play();
+      } );
+      sound.src = "music" + soundFileExtn;
+    }
+    
+    var image = new Image();
+    image.src = "spaceship.jpg";
+    image.onload = function(){
+      alert("image finished loading");
+    }
+  }
+</script>
+</head>
+<body onload="pageLoaded()">
+<canvas width="750px" height="1000px" id="testcanvas" style="border:1px solid black;">
+<img src="building.png" id="cool">
+<img src="spaceship.jpg" id="spaceship">
+</canvas>
+</body>
+</html>

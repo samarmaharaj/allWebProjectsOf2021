@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+fieldset 
+{
+  padding:10px;
+  margin: 10px;
+  width:150px;
+  height: 100px;
+  display:inline-block;
+  background: red;
+  box-shadow: 5px 5px 10px 3px grey;
+  border: 1px solid black;
+}
+
+.btn
+{
+  color: white;
+  width: 180px;
+  height: 200px;
+  padding:0px;
+  margin-left:0px;
+  border:none;
+}
+
+#B1{background:blue;}
+#B2{background:green;}
+#B3{background:cyan;}
+#B4{background:yellow;}
+
+#B1:active, #B2:active, #B3:active, #B4:active
+{
+ background:red;
+}
+</style>
+</head>
+<body>
+<fieldset id="demo1"></fieldset>
+<fieldset id="demo2"></fieldset>
+<fieldset id="demo3"></fieldset>
+<fieldset id="demo4"></fieldset>
+
+<button class="btn"  id="B1" onclick="myB()">Blue</button>
+<button  class="btn" id="B2" onclick="myG()">Green</button>
+<button  class="btn" id="B3"   onclick="myC()">Cyan</button>
+<button class="btn"  id="B4"  onclick="myY()" >yellow</button>
+
+<script type="text/javascript">
+function myB()  {
+  document.getElementById("demo1").style.backgroundColor = "blue";
+  document.getElementById("demo2").style.backgroundColor = "blue";
+  document.getElementById("demo3").style.backgroundColor = "blue";
+  document.getElementById("demo4").style.backgroundColor = "blue";
+}
+function myG()  {
+  document.getElementById("demo1").style.backgroundColor = "green";
+  document.getElementById("demo2").style.backgroundColor = "green";
+  document.getElementById("demo3").style.backgroundColor = "green";
+  document.getElementById("demo4").style.backgroundColor = "green";
+}
+function myC()  {
+  document.getElementById("demo1").style.backgroundColor = "cyan";
+  document.getElementById("demo2").style.backgroundColor = "cyan";
+  document.getElementById("demo3").style.backgroundColor = "cyan";
+  document.getElementById("demo4").style.backgroundColor = "cyan";
+}
+function myY()  {
+  document.getElementById("demo1").style.backgroundColor = "yellow";
+  document.getElementById("demo2").style.backgroundColor = "yellow";
+  document.getElementById("demo3").style.backgroundColor = "yellow";
+  document.getElementById("demo4").style.backgroundColor = "yellow";
+}
+
+
+
+</script>
+</body>
+</html>
