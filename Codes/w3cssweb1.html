@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>secrets</title>
+</head>
+<body>
+<p id="realPwd" style="display:none" >hello</p>
+<p id="p" >checking</p>
+<img id="p2" style="display:none"  src="photo/amarVector.jpg" width="100%"  >
+<input type="text" id="myinput" >
+<button onclick="submit()">submit</button>
+<button onclick="document.getElementById('changeInput').style.display = 'block'">change password</button>
+
+<div id="changeInput"  style="display:none" >
+  <fieldset>
+    <legend>change password</legend>
+      <input type="text" id="oldPwd" placeholder="enter old password" ><br>
+      <p id="p4" style="display:none" >entered wrong password</p><br>
+      <input type="text" id="newPwd" placeholder="enter new password..." ><br>
+      <button onclick="changePwd()">change password</button>
+      <p id="p3" style="display:none" >sorry! new password must be different.</p>
+      <p id="p4" ></p>
+  </fieldset>
+</div>
+<script type="text/javascript">
+var realPwd = document.getElementById("realPwd").innerText;
+
+function submit() {
+  var pwd = document.getElementById("myinput").value;
+  if(pwd == realPwd) {
+    document.getElementById("p2").style.display = "block";
+    document.getElementById("p").innerHTML = "right";
+  } else {
+    if(pwd != realPwd) {
+      document.getElementById("p2").style.display = "none";
+    }
+    document.getElementById("p").innerHTML = "wrong";
+  }
+}
+
+function changePwd() {
+  var oldPwd = document.getElementById("oldPwd").value;
+  var newPwd = document.getElementById("newPwd").value;
+  if(newPwd == realPwd){
+    document.getElementById("p3").style.display = "block";
+  } else {
+    document.getElementById("p3").style.display = "none";
+  }
+  if(oldPwd != realPwd) {
+    document.getElementById("p4").style.display = "block";
+  } else {
+    document.getElementById("p4").style.display = "none";
+  }
+  if(oldPwd == realPwd && newPwd != realPwd && newPwd != "") {
+    confirmChange();
+    document.getElementById("changeInput").style.display = "none";
+  }
+}
+
+function confirmChange() {
+  realPwd = document.getElementById("newPwd").value;
+}
+
+</script>
+</body>
+</html>

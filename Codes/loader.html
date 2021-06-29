@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"  >
+    <title>Bouncing Loader</title>
+    <style type="text/css">
+    body
+    {
+      margin : 0;
+      padding : 0;
+      display : flex;
+      flex-wrap: wrap;
+    } 
+    #loader1
+    {
+      background-color : navy;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      min-width : 50%;
+    }
+    #loader2
+    {
+      background-color : red;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      min-width : 50%;
+    }
+    #loader3
+    {
+      background-color : orange;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      clear : both;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      width : 50%;
+    }
+    #loader4
+    {
+      background-color : Indigo;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      width : 50%;
+    }
+    
+    
+    .loader
+    {
+      display : flex;
+    }
+    .circle1
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      border-radius : 50%;
+      animation : jump1 .6s linear infinite;
+    }
+    
+    .circle1:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle1:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump1
+    {
+      0%, 50%, 100%{ transform : translateY(0px);}
+      25%{ transform : translateY(-60px);}
+
+    }
+    
+    .circle2
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      border-radius : 50%;
+      animation : jump2 .6s linear infinite;
+    }
+    
+    .circle2:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle2:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump2
+    {
+      0%, 50%, 100%{ transform : translateY(0px);}
+      25%{ transform : translateY(-60px);}
+      75%{ transform : translateY(60px);}
+    
+    }
+    
+    .circle3
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      border-radius : 50%;
+      animation : jump3 .6s linear infinite;
+    }
+    
+    .circle3:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle3:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump3
+    {
+      0%, 50%, 100%{ transform : translate3D(0px, 0px 0px);}
+      25%{ transform : translate3D(-7.5vw, 7.5vw , 0vw);}
+    
+    }
+    
+    .circle4
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      border-radius : 50%;
+      animation : jump4 .6s linear infinite;
+    }
+    
+    .circle4:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle4:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump4
+    {
+      0%, 100%{transform : scale(0);}
+      50%{transform:scale(1.5) }
+    }
+    
+    #loader5
+    {
+      background-color : navy;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      min-width : 50%;
+    }
+    .circle5, .circle51, .circle53
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 1px;
+      border-radius : 50%;
+    }
+    .circle51
+    {
+      animation : jump51 .6s linear infinite;
+    }
+    @keyframes jump51
+    {
+      0%, 50%, 75%, 100%{ transform : translate(0px, 0px);}
+      25%{ transform : translate(-10vw, 0vw);}    
+    }
+    .circle53
+    {
+      animation : jump53 .6s .33s infinite linear;
+    }
+    @keyframes jump53
+    {
+      0%, 50%, 75%, 100%{ transform : translate(0px, 0px);}
+      25%{ transform : translate(10vw, 0vw);}
+    
+    }
+    
+    #loader6
+    {
+      background-color : red;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      min-width : 50%;
+    }
+    .circle6
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      border-radius : 50%;
+      animation : jump6 6s linear infinite;
+    }
+    
+    .circle6:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle6:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump6
+    {
+      0%{ transform : skew(0deg, 0deg);}
+      25%{ transform : skew(45deg, 0deg);}
+      50%{ transform : skew(-75deg, 35deg);}
+      75%{ transform : skew(9deg, 60deg);}
+      100%{ transform : skew(-45deg, 50deg);}
+    }
+    
+    #loader7
+    {
+      background-color : orange;
+      margin : 0;
+      padding : 0;
+      clear : both;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;      
+      width : 50%;
+    }
+    .circle71
+    {
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      border-radius : 50%;
+    }
+    .circle71
+    {
+      animation : jump71 .6s infinite linear;
+      border : 1px solid black ;
+    }
+
+    @keyframes jump71
+    {
+      25%{ transform : translate(-12.5vw, -12.5vw);}
+      50%{ transform : translate(-12.5vw, 12.5vw);}
+      75%{ transform : translate(12.5vw, 12.5vw);}
+      0%, 100%{ transform : translate(12.5vw, -12.5vw);}
+    }
+    
+    #loader8
+    {
+      background-color : Indigo;
+      margin : 0;
+      padding : 0;
+      display : flex;
+      align-items : center;
+      justify-content : center;
+      min-height : 50vh;
+      width : 50%;
+    }
+    .circle8
+    {
+      border : 1px solid white;
+      background-color : white;
+      height : 5vw;
+      width : 5vw;
+      margin : 10px;
+      opacity : 0.5;
+      border-radius : 50%;
+      animation : jump8 3s linear infinite;
+    }
+    
+    .circle8:nth-of-type(2) 
+    {
+      animation-delay: .33s;
+    } 
+    
+    .circle8:nth-of-type(3)
+    {
+      animation-delay: .66s;
+    } 
+    
+    @keyframes jump8
+    {
+      0%, 100%{ transform : scale(.25); opacity:0.5; box-shadow: 0px rgba(0,0,0,1)}
+      15%{ transform : scale(0.5); opacity:0.65; box-shadow: 0px 20px 0px rgba(0,0,0,1)}
+      35%{transform : scale(1); opacity:.85; box-shadow: 0px 50px 0px rgba(0,0,0,1)}
+      85%{transform : scale(1.25); opacity:1; box-shadow: 0px 100px 0px rgba(0,0,0,1)}
+    
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="loader1" >
+        <div class="loader" >
+            <div class="circle1" ></div>
+            <div class="circle1" ></div>
+            <div class="circle1" ></div>
+        </div>
+    </div>
+    <div id="loader2" >
+        <div class="loader" >
+            <div class="circle2" ></div>
+            <div class="circle2" ></div>
+            <div class="circle2" ></div>
+        </div>
+    </div>
+    
+    <div id="loader3" >
+        <div class="loader" >
+            <div class="circle3" ></div>
+            <div class="circle3" ></div>
+            <div class="circle3" ></div>
+        </div>
+    </div>
+    <div id="loader4" >
+        <div class="loader" >
+            <div class="circle4" ></div>
+            <div class="circle4" ></div>
+            <div class="circle4" ></div>
+        </div>
+    </div>
+    
+    <div id="loader5" >
+        <div class="loader" >
+            <div class="circle51" ></div>
+            <div class="circle5" ></div>
+            <div class="circle53" ></div>
+        </div>
+    </div>
+    <div id="loader6" >
+        <div class="loader" >
+            <div class="circle6" ></div>
+            <div class="circle6" ></div>
+            <div class="circle6" ></div>
+        </div>
+    </div>
+    
+    <div id="loader7" >
+        <div class="loader" >
+            <div class="circle71" ></div>
+            <div class="circle72" ></div>
+            <div class="circle73" ></div>
+            <div class="circle74" ></div>
+        </div>
+    </div>
+    <div id="loader8" >
+        <div class="loader" >
+            <div class="circle8" ></div>
+            <div class="circle8" ></div>
+            <div class="circle8" ></div>
+        </div>
+    </div>
+</body>
+</html>

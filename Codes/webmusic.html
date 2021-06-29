@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<button ontouchstart="j()">click</button>
+<script type="text/javascript">
+myMusic = new sound("Music/music.mp3");
+
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+}
+function j(){
+  myMusic.play();
+}
+
+window.addEventListener("DOMContentLoaded", event => {
+  const audio = document.querySelector("audio");
+  audio.volume = 0.2;
+  audio.play();
+});
+</script>
+<style type="text/css">
+body 
+{
+  margin: 0;
+  padding: 0;
+}
+button
+{
+  border: 1px solid black;
+  outline: 0;
+  background: red;
+  width: 100%;
+  height: 1000px;
+}
+embed
+{
+  background-color: red;
+}
+iframe
+{
+  display: none;
+  width:100px; 
+}
+</style>
+</body>
+</html>

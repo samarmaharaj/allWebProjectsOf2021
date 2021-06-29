@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"  >
+<meta charset="utf-8" />
+<meta name="description" content="World class smart watch by samarmaharaj" />
+<title>SmarP</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+body
+{
+  font-family : "Times New Roman", "Times", serif, sans-serif;
+}
+h1, h2, h3, h4, h5, h6
+{
+  font-family : serif;
+  letter-spacing : 5px;
+}
+.slideanim
+{
+  visibility:hidden;
+}
+.slide
+{
+  animation-name: slide;
+  animation-duration: 2s;
+  visibility: visible;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-visibility: visible;
+}
+@keyframes slide
+{
+  0%
+  {
+    opacity:0;
+    transform: translateY(90%);
+  }
+  100%
+  {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slide
+{
+  0%
+  {
+    opacity:0;
+    transform: translateY(90%);
+  }
+  100%
+  {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="w3-top w3-bar w3-white w3-padding w3-card w3-wide" >
+  <a href="#home" class="w3-bar-item w3-button"  >SmarP</a>
+  <div class="w3-right" id="nav" >
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small">About</a>
+    <a href="#feature" class="w3-bar-item w3-button w3-hide-small">Features</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small">Contact</a>
+    <a href="javascript:void(0)" class="w3-button w3-bar-item w3-hide-medium w3-hide-large"  onclick="toggle('smallNav')">&#9776;</a>
+  </div>
+  <div id="smallNav"  class="w3-bar-block w3-hide w3-hide-medium w3-hide-large" >
+    <a href="#about" class="w3-bar-item w3-button w3-animate-right">About</a>
+    <a href="#feature" class="w3-bar-item w3-button w3-animate-right" >Features</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-animate-right">Contact</a>
+  </div>
+</div>
+
+<div id="home" class="w3-content w3-padding-top-48" >
+  <div class="w3-display-container" >
+    <img src="https://images.unsplash.com/photo-1549482199-bc1ca6f58502?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80"   alt="smarp watch collection" style="width:100%"  >
+    <div class="w3-display-bottomright w3-padding-small w3-opacity w3-text-white" >
+    </div>
+  </div>
+</div>
+<div id="about" class="w3-padding-top-64 slideanim" >
+  <div class="w3-row" >
+    <div class="w3-half w3-padding-large" >
+      <img src="https://images.unsplash.com/photo-1579721840641-7d0e67f1204e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=938&q=80" style="width:100%"  class="w3-round-large w3-image w3-hover-grayscale w3-card-4" >
+    </div>
+    <div class="w3-half w3-padding-large" >
+      <h1 class="w3-center " >SmarP</h1>
+      <h5 class="w3-center" >Every human has limited time</h5>
+      <p class="w3-large w3-text-blue w3-center w3-wide" >Control it. Measure it.</p>
+    </div>
+  </div>
+</div>
+<div id="feature" class="w3-padding-top-64" >
+  <h1 class="w3-center slideanim" >We make Great products</h1>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>The future of health is on your wrist.</h4>
+    <p class="w3-text-grey" >Measure your blood oxygen level with a revolutionary new sensor and app. Take an ECG anytime, anywhere. See your fitness metrics at a glance with the enhanced Always-On Retina display. With Apple Watch Series 6 on your wrist, a healthier, more active, more connected life is within reach.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1539114658890-4222fe247c05?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1275&q=80"  style="width:100%"  class="w3-image w3-hover-grayscale" >
+  </div>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>Live chat</h4>
+    <p class="w3-text-grey" >Manage your time and give quick response.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1497565998880-bd009060dcd7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"  style="width:100%"  class="w3-image w3-hover-grayscale" >
+  </div>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>Global Streaming</h4>
+    <p class="w3-text-grey" >Watch anything anywhere.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1587081825211-4913a0438111?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1264&q=80"  style="width:100%"  class="w3-image w3-hover-grayscale" >
+  </div>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>Customized Band</h4>
+    <p class="w3-text-grey" >Here at SmarP, we care for your wrist. The band is develop in a way so that it doesn't harm you.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1548244823-b281470f2a95?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"  style="width:100%"  class="w3-image w3-hover-grayscale" >
+  </div>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>With 500+ Themes.</h4>
+    <p class="w3-text-grey" >Everyone has different interests.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1549486862-1a0e849380d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"  style="width:100%"   class="w3-image w3-hover-grayscale" >
+  </div>
+  <div class="w3-row" >
+  <div class="w3-col l6 m6 w3-padding-large slideanim" >
+    <h4>Whole stock market on your wrist.</h4>
+    <p class="w3-text-grey" >Be wolf of stock market.</p><br>
+  </div>
+  <div class="w3-col li m6 w3-padding-large" >
+    <img src="https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"  style="width:100%"  class="w3-image w3-hover-grayscale" >
+  </div>
+</div>
+
+<div id="products" class="w3-container w3-padding-large" >
+  <h1 class="w3-center slideanim" >Get it</h1>
+  <div class="w3-row slideanim" >
+    <div class=" w3-col l6 m6 w3-display-container w3-padding" >
+      <img src="https://images.unsplash.com/photo-1528297863596-f5d8c10fd8eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 750</h4>
+    </div>
+    <div class=" w3-col l6 m6 w3-display-container w3-padding " >
+      <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 750</h4>
+    </div>
+  </div>
+  
+  <div class="w3-row w3-animate-left slideanim" >
+    <div class=" w3-col l6 m6 w3-display-container w3-padding" >
+      <img src="https://images.unsplash.com/photo-1434494493852-d1871af5c0a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 999</h4>
+    </div>
+    <div class=" w3-col l6 m6 w3-display-container w3-padding " >
+      <img src="https://images.unsplash.com/photo-1523475496153-3d6cc0f0bf19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 999</h4>
+    </div>
+  </div>
+  
+  <div class="w3-row slideanim" >
+    <div class=" w3-col l6 m6 w3-display-container w3-padding" >
+      <img src="https://images.unsplash.com/photo-1434494571168-ab162bce2813?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 899</h4>
+    </div>
+    <div class=" w3-col l6 m6 w3-display-container w3-padding " >
+      <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 899</h4>
+    </div>
+  </div>
+  
+  <div class="w3-row slideanim" >
+    <div class=" w3-col l6 m6 w3-display-container w3-padding" >
+      <img src="https://images.unsplash.com/photo-1486649961855-75838619c131?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 799</h4>
+    </div>
+    <div class=" w3-col l6 m6 w3-display-container w3-padding " >
+      <img src="https://images.unsplash.com/photo-1614721827836-a7a24d470a69?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="w3-image" style="width:100%" >
+      <h4 class="w3-display-bottomright w3-white" > ₹ 799</h4>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="w3-container w3-padding-64 w3-center slideanim" >
+  <h1 class="w3-center slideanim" >Contact</h1>
+  <p>Phone : +100</p>
+  <p>Emai us : <a href="mailto:samar@gmail.com" >samar@gmail.com</a></p>
+  <p class="w3-text-grey w3-large" ><b>Noida, India</b></p><br>
+  <p class="w3-text-grey" >Send us feedback! we are waiting!</p>
+  
+  <form>
+    <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required="required"  name="name" ></p>
+    <p><input class="w3-input w3-padding-16" type="email" placeholder="Email" required="required"  name="email" ></p>
+    <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required="required"  name="date" value="2021-03-12T20:00" ></p>
+    <p><textarea class="w3-input w3-padding-16" type="text" placeholder="Feedback" required="required" rows="4"   name="feedback" ></textarea></p>
+    <p><button class="w3-button w3-black w3-hover-text-white w3-hover-white w3-hover-border w3-hover-text-black w3-xlarge" type="submit" name="submit"  >Send us</button>
+    <div class="w3-display-container slideanim" >
+    <img src="https://images.unsplash.com/photo-1534445967719-8ae7b972b1a5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1300&q=80"  style="width:100%" class="w3-image w3-hover-grayscale" >
+    <h3 class="w3-display-bottomright w3-white slideanim" > Samar Maharaj </h3>
+    </div>
+  </form>
+</div>
+
+<footer id="footer" class="w3-black w3-container w3-center" style="height:300px" >
+  <span class="w3-wide w3-text-white" style="font-size:50px" >SmarP</span>
+  <h1 class="w3-text-grey" >We create Differences</h1>
+  <a class="w3-button w3-white" href="#home" >Top</a>
+  <img src="https://1.bp.blogspot.com/-xejDsOTs-Fo/YE2aFtJ5p_I/AAAAAAAAAiE/4Arpp_Lo1xQnuR2sEeZgVVyoMgB2VE53wCLcBGAsYHQ/s150/smarp6.jpg" class="w3-tiny" >
+</footer>
+<script type="text/javascript">
+function toggle(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+$(document).ready(function(){
+  $("a, footer a[href='#home']").on('click', function(event) {
+
+   // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 1900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+
+$(document).scroll(function() {
+  $(".slideanim").each(function() {
+    var pos = $(this).offset().top;
+    var Winton = $(window).scrollTop();
+    if(pos < Winton + 1000)  {
+      $(this).addClass("slide");
+    }
+  });
+});
+</script>
+</body>
+</html>
